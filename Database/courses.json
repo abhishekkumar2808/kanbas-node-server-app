@@ -1,0 +1,42 @@
+[
+    { "_id": "KHY001",
+      "name": "React", "number": "CS1001", "startDate": "2023-01-10", "endDate": "2023-05-15",
+      "img-url": "../../images/react.png"
+    },
+
+    { "_id": "KHY002",
+      "name": "Bootsrap", "number": "CS1002", "startDate": "2023-01-10", "endDate": "2023-05-15",
+      "img-url": "../../images/bootstrap.png"
+    },
+
+    { "_id": "KHY003",
+      "name": "Next JS", "number": "CS1003", "startDate": "2023-01-10", "endDate": "2023-05-15",
+      "img-url": "../../images/nextjs.jpeg"
+    },
+
+    { "_id": "KHY004",
+      "name": "Tailwind CSS", "number": "CS1004", "startDate": "2023-01-10", "endDate": "2023-05-15",
+      "img-url": "../../images/tailwind.jpg"
+    },
+
+    { "_id": "KHY005",
+      "name": "MongoDB", "number": "CS1005", "startDate": "2023-01-10", "endDate": "2023-05-15",
+      "img-url": "../../images/mongodb.png"
+    },
+
+    { "_id": "KHY006",
+      "name": "Dockers", "number": "CS1006", "startDate": "2023-01-10", "endDate": "2023-05-15",
+      "img-url": "../../images/dockers.png"
+    },
+
+    { "_id": "KHY007",
+      "name": "Github", "number": "CS1007", "startDate": "2023-01-10", "endDate": "2023-05-15",
+      "img-url": "../../images/github.png"
+    },
+    
+    { "_id": "KHY008",
+      "name": "Node JS", "number": "CS1008", "startDate": "2023-01-10", "endDate": "2023-05-15",
+      "img-url": "../../images/node.png"
+    }
+  ]
+  
