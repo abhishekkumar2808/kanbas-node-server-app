@@ -27,7 +27,7 @@ function ModuleRoutes(app) {
     const newModule = {
       ...req.body,
       course: cid,
-      _id: new Date().getTime().toString(),
+      _id: new Date().getTime().toString(), 
     };
     db.modules.push(newModule);
     res.send(newModule);
