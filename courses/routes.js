@@ -33,9 +33,12 @@ function CourseRoutes(app) {
     
 
     app.post("/api/courses", (req, res) => {
+
+        console.log("\nhey: "+ req.body)
         const course = { ...req.body,
             _id: new Date().getTime().toString() };
         Database.courses.push(course);
+        console.log("\nsending back: "+ Database.courses)
         res.send(course);
         });
     
