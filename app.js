@@ -35,20 +35,6 @@ app.use(
   })
 );
  
-// app.use((req, res, next) => {
-//   const allowedOrigins = ["https://a6--monumental-begonia-f076c4.netlify.app","http://localhost:3000"];
-//   const origin = req.headers.origin;
- 
-
-//   res.header("Access-Control-Allow-Origin", origin);
-  
- 
-//   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-//   res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, PATCH, OPTIONS");
-//   res.header("Access-Control-Allow-Credentials", "true");
-//   res.header("Cache-Control", "no-cache, no-store, must-revalidate");
-//   next();
-// });
 
 app.use(express.json())
 
