@@ -22,6 +22,13 @@ app.use(cors(
  }  
 ));
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', process.env.FRONTEND_URL);
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 const sessionOptions = {
   secret: "any string",
   resave: false,
@@ -38,6 +45,7 @@ if (process.env.NODE_ENV !== "development") {
 app.use(session(sessionOptions));
 
 app.use(express.json())
+
 UserRoutes(app);
 CourseRoutes(app);
 ModuleRoutes(app);
