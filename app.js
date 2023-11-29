@@ -13,33 +13,67 @@ import session from "express-session";
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas'
 mongoose.connect(CONNECTION_STRING);
 
-const app = express()
+
 
 // app.use(cors())
 
-app.use(cors(
- {
+// app.use(cors(
+//  {
+//     credentials: true,
+//     origin: 'https://a6--monumental-begonia-f076c4.netlify.app',
+//  }  
+// ));
+
+
+
+// const sessionOptions = {
+//   secret: "any string",
+//   resave: false,
+//   saveUninitialized: false,
+// };
+
+// if (process.env.NODE_ENV !== "development") {
+//   sessionOptions.proxy = true;
+//   sessionOptions.cookie = {
+//     sameSite: "none",
+//     secure: true,
+//   };
+// }
+// app.use(session(sessionOptions));
+
+const app = express();
+app.use(cors({
     credentials: true,
-    origin: 'https://a6--monumental-begonia-f076c4.netlify.app',
- }  
+    origin: ["https://a6--monumental-begonia-f076c4.netlify.app","http://localhost:3001"]
+  }
 ));
+app.use(
+  session({
+    secret: "any string",
+    resave: false,
+    proxy: true,
+    saveUninitialized: false,
+    cookie: {
+      sameSite: "none",
+      secure: true
+    }
+  })
+);
+ 
+app.use((req, res, next) => {
+  const allowedOrigins = ["https://a6--monumental-begonia-f076c4.netlify.app","http://localhost:3001"];
+  const origin = req.headers.origin;
+ 
 
-
-
-const sessionOptions = {
-  secret: "any string",
-  resave: false,
-  saveUninitialized: false,
-};
-
-if (process.env.NODE_ENV !== "development") {
-  sessionOptions.proxy = true;
-  sessionOptions.cookie = {
-    sameSite: "none",
-    secure: true,
-  };
-}
-app.use(session(sessionOptions));
+  res.header("Access-Control-Allow-Origin", origin);
+  
+ 
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, PATCH, OPTIONS");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+  next();
+});
 
 app.use(express.json())
 
