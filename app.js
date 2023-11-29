@@ -20,7 +20,7 @@ const app = express()
 app.use(cors(
  {
     credentials: true,
-    origin: process.env.FRONTEND_URL,
+    origin: 'https://a6--monumental-begonia-f076c4.netlify.app',
  }  
 ));
 
@@ -50,7 +50,7 @@ CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
 Lab5(app);
-Hello(app);
+Hello(app)
 
 app.listen(process.env.PORT || 4000);      
 
