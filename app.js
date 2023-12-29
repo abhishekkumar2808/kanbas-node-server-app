@@ -11,7 +11,16 @@ import UserRoutes from "./users/routes.js";
 import session from "express-session";
 
 const CONNECTION_STRING = process.env.DB_CONNECTION_STRING || 'mongodb://127.0.0.1:27017/kanbas'
-mongoose.connect(CONNECTION_STRING);
+
+try{
+ await mongoose.connect(CONNECTION_STRING);
+}
+catch(error){
+  console.log("eoorr", error.message)
+}
+
+
+
 
 
 
@@ -46,7 +55,7 @@ CourseRoutes(app);
 ModuleRoutes(app);
 AssignmentRoutes(app);
 Lab5(app);
-Hello(app)
+Hello(app);
 
 app.listen(process.env.PORT || 4000);      
 
